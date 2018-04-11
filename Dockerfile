@@ -16,14 +16,22 @@ RUN /opt/conda/bin/conda update -n base conda
 RUN /opt/conda/bin/conda install jupyter -y --quiet
 
 
-# Build Instructions
-# 1.
-#docker build -t ml_workshop:base .
 
 # Instructions
 # 1.
 #docker load -i ml_workshop.tar
 # 2.
-#docker run --rm --cpus="4" --memory="4g" -p 8896:8896 ml_workshop:base /bin/bash -c "git clone https://github.com/zikrach/ML_workshop.git && cd ML_workshop/ && /opt/conda/bin/jupyter notebook --notebook-dir=/home/ML_workshop --ip='*' --port=8896 --no-browser --allow-root --NotebookApp.token=''"
+#docker run --rm --cpus="4" --memory="4g" -p 8896:8896 ml_workshop:base /bin/bash -c "cd /home && git clone https://github.com/zikrach/ML_workshop.git && cd ML_workshop/ && /opt/conda/bin/jupyter notebook --notebook-dir=/home/ML_workshop --ip='*' --port=8896 --no-browser --allow-root --NotebookApp.token=''"
 # 3. Open in browser
-#http://localhost:8896/notebooks/
+#http://localhost:8896
+
+
+# Build Instructions
+# 1.
+#docker build -t ml_workshop:base .
+# 1a. If you need export docker image
+#docker save -o ml_workshop.tar ml_workshop:base
+# 2.
+#docker run --rm --cpus="4" --memory="4g" -p 8896:8896 ml_workshop:base /bin/bash -c "cd /home && git clone https://github.com/zikrach/ML_workshop.git && cd ML_workshop/ && /opt/conda/bin/jupyter notebook --notebook-dir=/home/ML_workshop --ip='*' --port=8896 --no-browser --allow-root --NotebookApp.token=''"
+# 3. Open in browser
+#http://localhost:8896
