@@ -5,6 +5,8 @@ __pycache__/
 .DS_Store
 *.tar
 
+data/train.csv
+
 # C extensions
 *.so
 
