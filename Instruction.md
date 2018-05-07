@@ -10,7 +10,7 @@
 # Instructions
 
 ## I. Instruction for those who want to build the image.
-1. Make the folder and download file:
+1. Make the folder and download the file with instructions to docker:
 ```
 mkdir ML_workshop
 cd ML_workshop
@@ -30,7 +30,7 @@ docker run --rm --cpus="4" --memory="4g" -p 8896:8896 ml_workshop:kyiv_2018 /bin
 http://localhost:8896/notebooks/ML_Game_Scenario.ipynb
 ```
 
-## II. instruction for those who want to use an image was built by us.
+## II. Instruction for those who want to use an image was built by us.
 1. Download files from TBD
 2. Install Docker from https://www.docker.com/community-edition#/download
 3. Run in terminal in folder with ml_workshop.tar file:
@@ -46,7 +46,7 @@ docker run --rm --cpus="4" --memory="4g" -p 8896:8896 ml_workshop:kyiv_2018 /bin
 http://localhost:8896/notebooks/ML_Game_Scenario.ipynb
 ```
 
-### III. instruction for those who have installed the Anaconda or have an environment with the necessary libraries (scikit-learn, pandas, numpy, scipy, jupyter, and other).
+### III. Instruction for those who have installed the Anaconda or have an environment with the necessary libraries (scikit-learn, pandas, numpy, scipy, jupyter, and other).
 
 1. Clone the GitHub repository:
 ```
@@ -57,11 +57,10 @@ git clone https://github.com/zikrach/ML_workshop.git
 cd ML_workshop
 ```
 3. Run Jupyter Notebook:
-4. Run:
 ```
 jupyter notebook --port=8896 --no-browser --NotebookApp.token=''
 ```
-5. Open your favorite browser and navigate to the
+4. Open your favorite browser and navigate to the
 ```
 http://localhost:8896/notebooks/ML_Game_Scenario.ipynb
 ```
