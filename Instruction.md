@@ -52,7 +52,7 @@ docker pull zikrach/ml_workshop:base_kiev
 ```
 3. Run docker container (you can change munber of cores --cpus="4" and amound of RAM --memory="4g"):
 ```
-docker run --rm --cpus="4" --memory="4g" -p 3838:3838 zikrach/ml_workshop:base_kiev
+docker run --rm --cpus="4" --memory="4g" -p 3838:3838 zikrach/ml_workshop:base_kiev /bin/bash -c "/usr/bin/shiny-server.sh"
 ```
 4. Open your favorite browser and navigate to the
 ```
