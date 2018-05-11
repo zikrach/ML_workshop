@@ -7,46 +7,24 @@
 5. CPU: minimum 4 cores
 5. Space: free 10Gb on disc
 
-# Instructions
+# I. Instructions to run ML_Game_Scenario Jupyter Notebook
 
-## I. Instruction for those who want to build the image.
-1. Make the folder and download the file with instructions to docker:
+1. Install Docker from https://www.docker.com/community-edition#/download
+2. Run command
 ```
-mkdir ML_workshop
-cd ML_workshop
-wget https://github.com/zikrach/ML_workshop/blob/master/Dockerfile
+docker pull zikrach/ml_workshop:base
 ```
-2. Install Docker from https://www.docker.com/community-edition#/download
-3. Build docker image:
+3. Run docker container (you can change munber of cores --cpus="4" and amound of RAM --memory="4g"):
 ```
-docker build -t ml_workshop:kyiv_2018 .
-```
-4. Run docker image:
-```
-docker run --rm --cpus="4" --memory="4g" -p 8896:8896 ml_workshop:kyiv_2018 /bin/bash -c "cd /home && git clone https://github.com/zikrach/ML_workshop.git && cd ML_workshop/ && /opt/conda/bin/jupyter notebook --notebook-dir=/home/ML_workshop --ip='*' --port=8896 --no-browser --allow-root --NotebookApp.token=''"
+docker run --rm --cpus="4" --memory="4g" -p 8896:8896 zikrach/ml_workshop:base /bin/bash -c "/usr/bin/run-jupyter.sh"
 ```
 5. Open your favorite browser and navigate to the
 ```
-http://localhost:8896/notebooks/ML_Game_Scenario.ipynb
+http://localhost:8896/notebooks/ML_workshop/ML_Game_Scenario.ipynb
 ```
 
-## II. Instruction for those who want to use an image was built by us.
-1. Download files from TBD
-2. Install Docker from https://www.docker.com/community-edition#/download
-3. Run in terminal in folder with ml_workshop.tar file:
-```
-docker load -i ml_workshop.tar
-```
-4. Run:
-```
-docker run --rm --cpus="4" --memory="4g" -p 8896:8896 ml_workshop:kyiv_2018 /bin/bash -c "cd /home && git clone https://github.com/zikrach/ML_workshop.git && cd ML_workshop/ && /opt/conda/bin/jupyter notebook --notebook-dir=/home/ML_workshop --ip='*' --port=8896 --no-browser --allow-root --NotebookApp.token=''"
-```
-5. Open your favorite browser and navigate to the
-```
-http://localhost:8896/notebooks/ML_Game_Scenario.ipynb
-```
 
-### III. Instruction for those who have installed the Anaconda or have an environment with the necessary libraries (scikit-learn, pandas, numpy, scipy, jupyter, and other).
+# II. Instruction for those who have installed the Anaconda or have an environment with the necessary libraries (scikit-learn, pandas, numpy, scipy, jupyter, and other).
 
 1. Clone the GitHub repository:
 ```
@@ -63,4 +41,20 @@ jupyter notebook --port=8896 --no-browser --NotebookApp.token=''
 4. Open your favorite browser and navigate to the
 ```
 http://localhost:8896/notebooks/ML_Game_Scenario.ipynb
+```
+
+
+# III. Instructions to run ML_Carts Shiny application
+1. Install Docker from https://www.docker.com/community-edition#/download
+2. Run command
+```
+docker pull zikrach/ml_workshop:base
+```
+3. Run docker container (you can change munber of cores --cpus="4" and amound of RAM --memory="4g"):
+```
+docker run --rm --cpus="4" --memory="4g" -p 3838:3838 zikrach/ml_workshop:base
+```
+4. Open your favorite browser and navigate to the
+```
+http://localhost:3838/ml_carts
 ```
