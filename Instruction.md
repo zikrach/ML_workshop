@@ -12,11 +12,11 @@
 1. Install Docker from https://www.docker.com/community-edition#/download
 2. Run command
 ```
-docker pull zikrach/ml_workshop:base
+docker pull zikrach/ml_workshop:base_kiev
 ```
 3. Run docker container (you can change munber of cores --cpus="4" and amound of RAM --memory="4g"):
 ```
-docker run --rm --cpus="4" --memory="4g" -p 8896:8896 zikrach/ml_workshop:base /bin/bash -c "/usr/bin/run-jupyter.sh"
+docker run --rm --cpus="4" --memory="4g" -p 8896:8896 zikrach/ml_workshop:base_kiev /bin/bash -c "/usr/bin/run-jupyter.sh"
 ```
 5. Open your favorite browser and navigate to the
 ```
@@ -48,11 +48,11 @@ http://localhost:8896/notebooks/ML_Game_Scenario.ipynb
 1. Install Docker from https://www.docker.com/community-edition#/download
 2. Run command
 ```
-docker pull zikrach/ml_workshop:base
+docker pull zikrach/ml_workshop:base_kiev
 ```
 3. Run docker container (you can change munber of cores --cpus="4" and amound of RAM --memory="4g"):
 ```
-docker run --rm --cpus="4" --memory="4g" -p 3838:3838 zikrach/ml_workshop:base
+docker run --rm --cpus="4" --memory="4g" -p 3838:3838 zikrach/ml_workshop:base_kiev
 ```
 4. Open your favorite browser and navigate to the
 ```
