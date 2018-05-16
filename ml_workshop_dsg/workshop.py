@@ -160,10 +160,10 @@ def fit_model_tune(algs, data, target, search_space, models):
         model.append(alg.__name__)
         ts = time.time()
         if alg != LogisticRegression:
-            clf = GridSearchCV(alg(), search_space[alg.__name__], scoring='roc_auc', cv=3,
+            clf = GridSearchCV(alg(), search_space[alg.__name__], scoring='average_precision', cv=3,
                                return_train_score=True, verbose=2, n_jobs=-1)
         else:
-            clf = GridSearchCV(alg(), search_space[alg.__name__], scoring='roc_auc', cv=3,
+            clf = GridSearchCV(alg(), search_space[alg.__name__], scoring='average_precision', cv=3,
                                return_train_score=True, verbose=2)
         # sw=compute_sample_weight('balanced', y=y_all)
         clf.fit(X_all, y_all)
