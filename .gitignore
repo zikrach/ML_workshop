@@ -6,7 +6,7 @@ __pycache__/
 *.tar
 
 data/train.csv
-base_image/
+#base_image/
 test_all_image/
 
 # C extensions
