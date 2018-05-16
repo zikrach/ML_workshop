@@ -1,7 +1,5 @@
 FROM r-base:latest
 
-MAINTAINER Winston Chang "winston@rstudio.com"
-
 # Install dependencies and Download and install shiny server
 RUN apt-get update && apt-get install -y -t unstable \
     sudo \
@@ -21,7 +19,7 @@ RUN apt-get update && apt-get install -y -t unstable \
     rm -rf /var/lib/apt/lists/*
 
 RUN sudo apt-get update && sudo apt-get -y install git wget libssl-dev nano
-RUN mkdir /home/src && cd /home/src && git clone https://e275dc090336b5a85228f5767f4400ed1536f1ec@github.com/zikrach/framework-ml-carts.git
+RUN mkdir /home/src && cd /home/src && git clone https://token@github.com/zikrach/framework-ml-carts.git
 
 RUN mkdir /srv/shiny-server/ml_carts && cp -a /home/src/framework-ml-carts/shiny_with_classification/. /srv/shiny-server/ml_carts
 RUN chmod a+rwx -R /srv/shiny-server/ml_carts
