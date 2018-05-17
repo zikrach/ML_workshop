@@ -209,3 +209,38 @@ def fit_model_tune(algs, data, target, search_space, models):
             'PREDICTION_TIME': prediction_time}))
 
     return X_train, X_test, models, best_models
+
+
+def visualization(data, best_models, X_test):
+    Train_data, Test_data = train_test_split(data, test_size=0.2, random_state=10)
+
+    dff = Test_data.copy()
+    dff['Pred_Churn'] = best_models['LogisticRegression'].predict(X_test)
+    dff['Prediction'] = 'At Risk'
+    dff.Prediction[(dff.Pred_Churn == 0)] = 'Beyond the Risk'
+
+    numerics = ['int16', 'int32', 'int64', 'float16', 'float32', 'float64']
+
+    categ_columns = data.select_dtypes(exclude=numerics).drop('Churn', axis=1).columns
+    num_columns = data.select_dtypes(include=numerics).columns
+
+    k = 1
+    for var in categ_columns:
+
+        df = pd.crosstab(dff.Prediction, dff[var], normalize="index")
+        if (k == 3) | (k == 1):
+            k = 1
+            fig, (ax1, ax2) = ax = plt.subplots(1, 2, figsize=[20, 4])
+            df.plot(kind='bar', title=var, ax=ax1)
+            ax1.legend(bbox_to_anchor=(0., 1.02, 1., .102), loc=3,
+                       borderaxespad=0.)
+        else:
+            df.plot(kind='bar', title=var, ax=ax2)
+            ax2.legend(bbox_to_anchor=(0., 1.02, 1., .102), loc=3,
+                       borderaxespad=0.)
+
+        k = k + 1
+
+    for var in num_columns:
+        dff.boxplot(var, by='Prediction', layout=(1, 1), figsize=(20, 10))
+
