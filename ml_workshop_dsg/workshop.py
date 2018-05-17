@@ -139,7 +139,6 @@ def fit_model(algs, data, target, seed):
 
 def fit_model_tune(algs, data, target, search_space, models):
 
-    Train, Test = train_test_split(data, test_size=0.2, random_state=10)
     X_train, X_test, y_train, y_test = train_test_split(data, target, test_size=0.2, random_state=10)
 
     best_models = {}
@@ -209,4 +208,4 @@ def fit_model_tune(algs, data, target, search_space, models):
             'TRAINING_TIME': training_time,
             'PREDICTION_TIME': prediction_time}))
 
-    return Train, Test, models, best_models
+    return X_train, X_test, models, best_models
