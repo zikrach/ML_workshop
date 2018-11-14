@@ -12,11 +12,11 @@
 1. Install Docker from https://www.docker.com/community-edition#/download
 2. Run command
 ```
-docker pull zikrach/ml_workshop:vilnius_2018
+docker pull zikrach/ml_workshop:Vilnius_2018
 ```
 3. Run docker container (you can change munber of cores --cpus="4" and amound of RAM --memory="4g"):
 ```
-docker run --rm --cpus="4" --memory="4g" -p 8896:8896 zikrach/ml_workshop:vilnius_2018 /bin/bash -c "/usr/bin/run-jupyter.sh"
+docker run --rm --cpus="4" --memory="4g" -p 8896:8896 zikrach/ml_workshop:Vilnius_2018 /bin/bash -c "/usr/bin/run-jupyter.sh"
 ```
 5. Open your favorite browser and navigate to the
 ```
@@ -33,6 +33,7 @@ git clone https://github.com/zikrach/ML_workshop.git
 2. Open the folder with code:
 ```
 cd ML_workshop
+git checkout
 ```
 3. Run Jupyter Notebook:
 ```
@@ -48,11 +49,11 @@ http://localhost:8896/notebooks/ML_Game_Scenario.ipynb
 1. Install Docker from https://www.docker.com/community-edition#/download
 2. Run command
 ```
-docker pull zikrach/ml_workshop:vilnius_2018
+docker pull zikrach/ml_workshop:Vilnius_2018
 ```
 3. Run docker container (you can change munber of cores --cpus="4" and amound of RAM --memory="4g"):
 ```
-docker run --rm --cpus="4" --memory="4g" -p 3838:3838 zikrach/ml_workshop:vilnius_2018 /bin/bash -c "/usr/bin/shiny-server.sh"
+docker run --rm --cpus="4" --memory="4g" -p 3838:3838 zikrach/ml_workshop:Vilnius_2018 /bin/bash -c "/usr/bin/shiny-server.sh"
 ```
 4. Open your favorite browser and navigate to the
 ```
