@@ -247,7 +247,7 @@ def visualization(data, best_models, model_name, X_test):
     dff = Test_data.copy()
     dff['Pred_Churn'] = best_models[model_name].predict(X_test)
     dff['Prediction'] = 'At Risk'
-    dff.Prediction[(dff.Pred_Churn == 0)] = 'Beyond the Risk'
+    dff.loc[(dff.Pred_Churn == 0), 'Prediction'] = 'Beyond the Risk'
 
     numerics = ['int16', 'int32', 'int64', 'float16', 'float32', 'float64']
 
