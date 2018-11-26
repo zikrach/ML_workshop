@@ -38,7 +38,11 @@ pd.set_option('display.max_columns', 500)
 
 
 def data_preprocessing(data):
-    #Function prepare data to model
+    """
+    Function preparing data for a model.
+    
+    :param data: raw data 
+    """
 
     # 1. Fill NA in TotalCharges column
     data['TotalCharges'] = data['TotalCharges'].fillna(0)
@@ -77,6 +81,14 @@ def data_preprocessing(data):
 
 
 def fit_model(algs, data, target, seed):
+    """
+    Function for fitting models and check prediction on test data.
+    
+    :param algs: list of algorithms
+    :param data: prepared data
+    :param target: target variable for a model
+    :param seed: random seed
+    """
 
     Train, Test = train_test_split(data, test_size=0.2, random_state=10)
     X_train, X_test, y_train, y_test = train_test_split(data, target, test_size=0.2, random_state=10)
@@ -138,7 +150,16 @@ def fit_model(algs, data, target, seed):
     return Train, Test, models
 
 def fit_model_tune(algs, data, target, search_space, models):
-
+    """
+    Function for fitting models with tuning and check prediction on test data.
+    
+    :param algs: list of algorithms
+    :param data: prepared data
+    :param target: target variable for a model
+    :param search_space: spece of parameters for grid search
+    :param models: DF with results without tuninig
+    """
+        
     X_train, X_test, y_train, y_test = train_test_split(data, target, test_size=0.2, random_state=10)
 
     best_models = {}
@@ -211,11 +232,20 @@ def fit_model_tune(algs, data, target, search_space, models):
     return X_train, X_test, models, best_models
 
 
-def visualization(data, best_models, X_test):
+def visualization(data, best_models, model_name, X_test):
+    """
+    Function for building plots.
+    
+    :param data: prepared data
+    :param best_models: dictionary with results of tuning
+    :param model_name: name of the best model after tuning
+    :param X_test: testing data for prediction
+    """    
+    
     Train_data, Test_data = train_test_split(data, test_size=0.2, random_state=10)
 
     dff = Test_data.copy()
-    dff['Pred_Churn'] = best_models['LogisticRegression'].predict(X_test)
+    dff['Pred_Churn'] = best_models[model_name].predict(X_test)
     dff['Prediction'] = 'At Risk'
     dff.Prediction[(dff.Pred_Churn == 0)] = 'Beyond the Risk'
 
